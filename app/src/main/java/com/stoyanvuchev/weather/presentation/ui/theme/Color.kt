@@ -1,4 +1,4 @@
-package com.stoyanvuchev.weather.ui.theme
+package com.stoyanvuchev.weather.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

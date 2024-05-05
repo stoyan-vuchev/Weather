@@ -1,4 +1,4 @@
-package com.stoyanvuchev.weather.ui.theme
+package com.stoyanvuchev.weather.presentation.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

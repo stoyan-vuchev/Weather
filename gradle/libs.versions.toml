@@ -35,6 +35,13 @@ androidxHiltNavigationCompose = "1.2.0"
 androidxHiltWork = "1.2.0"
 androidxHiltCompiler = "1.2.0"
 
+# Networking Versions
+retrofit = "2.9.0"
+okHttp3 = "4.11.0"
+
+# Serialization Versions
+gson = "2.10.1"
+
 # Widget Versions
 glance = "1.1.0-beta02"
 glanceTools = "0.2.2"
@@ -92,6 +99,16 @@ daggerHilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", ver
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "androidxHiltWork" }
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxHiltCompiler" }
+
+# Networking Libs
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp3" }
+okhttp-loggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp3" }
+
+# Serialization Libs
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 # Widget Libs
 glance = { group = "androidx.glance", name = "glance", version.ref = "glance" }
