@@ -1,0 +1,119 @@
+[versions]
+
+# Main Plugin Versions
+agp = "8.4.0"
+kotlin = "1.9.23"
+ksp = "1.9.23-1.0.20"
+
+# Core Dependency Versions
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+workManager = "2.9.0"
+lifecycleRuntimeKtx = "2.7.0"
+lifecycleRuntimeCompose = "2.7.0"
+activityCompose = "1.9.0"
+navigationCompose = "2.7.7"
+materialDesign = "1.12.0"
+
+# Compose Versions
+composeBom = "2024.05.00"
+
+# Look & Feel Versions
+systemUiBarsTweaker = "1.0.0"
+squircleShape = "1.0.8"
+responsiveScaffold = "1.0.4"
+
+# Local Storage Versions
+datastore = "1.1.1"
+room = "2.6.1"
+
+# Dependency Injection Versions
+daggerHilt = "2.51"
+androidxHiltNavigationCompose = "1.2.0"
+androidxHiltWork = "1.2.0"
+androidxHiltCompiler = "1.2.0"
+
+# Widget Versions
+glance = "1.1.0-beta02"
+glanceTools = "0.2.2"
+
+# Testing Versions
+assertK = "0.28.1"
+appCashTurbine = "1.1.0"
+coroutinesTest = "1.8.0"
+
+# =================================================================================================
+
+[libraries]
+
+# Core Dependency Libs
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-work = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workManager" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeCompose" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+materialDesign = { group = "com.google.android.material", name = "material", version.ref = "materialDesign" }
+
+# Compose Libs
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-animation = { group = "androidx.compose.animation", name = "animation" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+
+# Look & Feel Libs
+systemUiBarsTweaker = { group = "com.github.stoyan-vuchev", name = "system-ui-bars-tweaker", version.ref = "systemUiBarsTweaker" }
+squircleShape = { group = "com.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircleShape" }
+responsiveScaffold = { group = "com.github.stoyan-vuchev", name = "responsive-scaffold", version.ref = "responsiveScaffold" }
+
+# Local Storage Libs
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# Dependency Injection Libs
+daggerHilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+daggerHilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "daggerHilt" }
+daggerHilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "androidxHiltWork" }
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxHiltCompiler" }
+
+# Widget Libs
+glance = { group = "androidx.glance", name = "glance", version.ref = "glance" }
+glance-appwidget = { group = "androidx.glance", name = "glance-appwidget", version.ref = "glance" }
+glance-tools-appwidget-host = { group = "com.google.android.glance.tools", name = "appwidget-host", version.ref = "glanceTools" }
+glance-tools-appwidget-configuration = { group = "com.google.android.glance.tools", name = "appwidget-configuration", version.ref = "glanceTools" }
+
+# Testing Libs
+assertK = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertK" }
+appCash-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "appCashTurbine" }
+coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+
+# =================================================================================================
+
+[plugins]
+
+# Main Plugins
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Symbol Proccessing Plugins
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# Dependency Injection Plugins
+daggerHilt-android-gradle = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
