@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.ApplicationDefaultConfig
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
@@ -41,6 +42,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        includeBuildConfigFields()
 
     }
 
@@ -87,6 +90,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -161,6 +165,18 @@ dependencies {
     implementation(libs.androidx.hilt.work)
     ksp(libs.androidx.hilt.compiler)
 
+    // Networking Dependencies
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.loggingInterceptor)
+
+    // Serialization Dependencies
+
+    implementation(libs.gson)
+
     // Widget Dependencies
 
     implementation(libs.glance)
@@ -178,6 +194,46 @@ dependencies {
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+private fun ApplicationDefaultConfig.includeBuildConfigFields() {
+
+    buildConfigField(
+        "String",
+        "BASE_URL",
+        getProperty("base.url")
+    )
+
+    buildConfigField(
+        "String",
+        "FORECAST_REQUEST",
+        getProperty("forecast.request")
+    )
+
+    buildConfigField(
+        "String",
+        "CURRENT_INFO_BASIC",
+        getProperty("current.info.basic")
+    )
+
+    buildConfigField(
+        "String",
+        "CURRENT_INFO",
+        getProperty("current.info")
+    )
+
+    buildConfigField(
+        "String",
+        "HOURLY_INFO",
+        getProperty("hourly.info")
+    )
+
+    buildConfigField(
+        "String",
+        "DAILY_INFO",
+        getProperty("daily.info")
+    )
+
 }
 
 private fun getFile(path: String): File = file(getProperty(path))

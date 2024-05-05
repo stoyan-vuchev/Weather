@@ -15,7 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.stoyanvuchev.weather.ui.theme.WeatherTheme
+import com.stoyanvuchev.weather.presentation.ui.theme.WeatherTheme
 import dagger.hilt.android.AndroidEntryPoint
 import sv.lib.squircleshape.SquircleShape
 
