@@ -190,6 +190,10 @@ dependencies {
     testImplementation(libs.appCash.turbine)
     testImplementation(libs.coroutinesTest)
 
+    androidTestImplementation(libs.assertK)
+    androidTestImplementation(libs.appCash.turbine)
+    androidTestImplementation(libs.coroutinesTest)
+
 }
 
 ksp {
