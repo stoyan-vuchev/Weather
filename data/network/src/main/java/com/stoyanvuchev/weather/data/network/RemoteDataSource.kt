@@ -30,21 +30,19 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 
 class RemoteDataSource(
-    private val client: HttpClient
+    private val client: HttpClient = RemoteDataSourceHttpClient.instance()
 ) {
 
     suspend fun getWeatherData(
-        lat: Double,
-        lon: Double,
-        units: String,
-        lang: String,
+        lat: String,
+        lon: String
     ): WeatherResponseDto {
         return client.get(BuildConfig.HOST_URL + BuildConfig.HOME_GET_REQUEST) {
             url {
-                parameters.append("lat", lat.toString())
-                parameters.append("lon", lon.toString())
-                parameters.append("units", units)
-                parameters.append("lang", lang)
+                parameters.append("lat", lat)
+                parameters.append("lon", lon)
+                parameters.append("units", "metric")
+                parameters.append("lang", "en")
                 parameters.append("exclude", BuildConfig.EXCLUDE_PARAMETERS)
                 parameters.append("appid", BuildConfig.API_KEY)
             }

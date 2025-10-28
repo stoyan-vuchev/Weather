@@ -22,37 +22,21 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.data.network.dto
+package com.stoyanvuchev.weather.domain.model.weather
 
-import kotlinx.serialization.SerialName
+import com.stoyanvuchev.weather.domain.model.location.LocationType
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DailyDto(
-    val dt: Long? = 0L,
-    val sunrise: Long? = 0,
-    val sunset: Long? = 0,
-    val moonrise: Long? = 0,
-    val moonset: Long? = 0,
-    @SerialName("moon_phase")
-    val moonPhase: Double? = 0.0,
-    val temp: TempDto? = TempDto(),
-    @SerialName("feels_like")
-    val feelsLike: FeelsLikeDto? = FeelsLikeDto(),
-    val pressure: Int? = 0,
-    val humidity: Int? = 0,
-    @SerialName("dew_point")
-    val dewPoint: Double? = 0.0,
-    @SerialName("wind_speed")
-    val windSpeed: Double? = 0.0,
-    @SerialName("wind_deg")
-    val windDeg: Double? = 0.0,
-    @SerialName("wind_gust")
-    val windGust: Double? = 0.0,
-    val weather: List<WeatherDto>? = emptyList(),
-    val clouds: Int? = 0,
-    val pop: Double? = 0.0,
-    val rain: Double? = 0.0,
-    val snow: Double? = 0.0,
-    val uvi: Double? = 0.0
+data class WeatherModel(
+    val lat: String = "0.0",
+    val lon: String = "0.0",
+    val name: String = "",
+    val type: LocationType = LocationType.STANDALONE,
+    val timestamp: String = "",
+    val timezone: String = "",
+    val timezoneOffset: Long = 0L,
+    val current: CurrentWeatherModel = CurrentWeatherModel(),
+    val hourly: List<HourlyModel> = emptyList(),
+    val daily: List<DailyModel> = emptyList()
 )

@@ -22,37 +22,31 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.data.network.dto
+package com.stoyanvuchev.weather.domain.other.unit
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+data class UnitConfiguration(
+    val temperatureUnit: TemperatureUnit,
+    val speedUnit: SpeedUnit,
+    val distanceUnit: DistanceUnit,
+    val pressureUnit: PressureUnit
+) {
 
-@Serializable
-data class DailyDto(
-    val dt: Long? = 0L,
-    val sunrise: Long? = 0,
-    val sunset: Long? = 0,
-    val moonrise: Long? = 0,
-    val moonset: Long? = 0,
-    @SerialName("moon_phase")
-    val moonPhase: Double? = 0.0,
-    val temp: TempDto? = TempDto(),
-    @SerialName("feels_like")
-    val feelsLike: FeelsLikeDto? = FeelsLikeDto(),
-    val pressure: Int? = 0,
-    val humidity: Int? = 0,
-    @SerialName("dew_point")
-    val dewPoint: Double? = 0.0,
-    @SerialName("wind_speed")
-    val windSpeed: Double? = 0.0,
-    @SerialName("wind_deg")
-    val windDeg: Double? = 0.0,
-    @SerialName("wind_gust")
-    val windGust: Double? = 0.0,
-    val weather: List<WeatherDto>? = emptyList(),
-    val clouds: Int? = 0,
-    val pop: Double? = 0.0,
-    val rain: Double? = 0.0,
-    val snow: Double? = 0.0,
-    val uvi: Double? = 0.0
-)
+    companion object {
+
+        val METRIC = UnitConfiguration(
+            temperatureUnit = TemperatureUnit.CELSIUS,
+            speedUnit = SpeedUnit.KILOMETERS_PER_HOUR,
+            distanceUnit = DistanceUnit.KILOMETER,
+            pressureUnit = PressureUnit.MILLIBARS
+        )
+
+        val IMPERIAL = UnitConfiguration(
+            temperatureUnit = TemperatureUnit.FAHRENHEIT,
+            speedUnit = SpeedUnit.MILES_PER_HOUR,
+            distanceUnit = DistanceUnit.MILE,
+            pressureUnit = PressureUnit.INCHES
+        )
+
+    }
+
+}
