@@ -24,7 +24,9 @@
 
 package com.stoyanvuchev.weather.data.local.database
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.stoyanvuchev.weather.data.local.database.entity.WeatherEntity
@@ -37,5 +39,27 @@ import com.stoyanvuchev.weather.data.local.database.typeconverter.WeatherEntityT
 )
 @TypeConverters(WeatherEntityTypeConverter::class)
 abstract class LocalDatabase : RoomDatabase() {
+
     abstract val dao: LocalDatabaseDao
+
+    companion object {
+
+        fun instance(
+            context: Context,
+            inMemory: Boolean = false
+        ) = if (inMemory) {
+            Room.inMemoryDatabaseBuilder(
+                context,
+                LocalDatabase::class.java
+            ).addTypeConverter(WeatherEntityTypeConverter()).build()
+        } else {
+            Room.databaseBuilder(
+                context,
+                LocalDatabase::class.java,
+                "local_db"
+            ).addTypeConverter(WeatherEntityTypeConverter()).build()
+        }
+
+    }
+
 }

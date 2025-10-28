@@ -29,7 +29,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class HourlyDto(
-    val dt: Int? = 0,
+    val dt: Long? = 0L,
     val temp: Double? = 0.0,
     @SerialName("feels_like")
     val feelsLike: Double? = 0.0,
@@ -48,5 +48,6 @@ data class HourlyDto(
     val windGust: Double? = 0.0,
     val weather: List<WeatherDto>? = emptyList(),
     val pop: Double? = 0.0,
-    val rain: RainDto? = RainDto()
+    val rain: RainDto? = RainDto(),
+    val snow: SnowDto? = SnowDto()
 )

@@ -34,16 +34,14 @@ class RemoteDataSourceTest {
     @Test
     fun `Get weather data from Remote Data Source`() = runTest {
 
-        val client = RemoteDataSourceHttpClient.instance
+        val client = RemoteDataSourceHttpClient.instance()
         val remoteDataSource = RemoteDataSource(client)
 
         try {
 
             val data = remoteDataSource.getWeatherData(
-                lat = 42.0,
-                lon = 24.0,
-                units = "metric",
-                lang = "en"
+                lat = "42.0",
+                lon = "24.0"
             )
 
             println(data)

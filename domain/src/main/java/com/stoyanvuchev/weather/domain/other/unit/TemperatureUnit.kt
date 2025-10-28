@@ -22,21 +22,9 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.domain.model.weather
+package com.stoyanvuchev.weather.domain.other.unit
 
-import com.stoyanvuchev.weather.domain.model.location.LocationType
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class WeatherResponseModel(
-    val lat: String = "0.0",
-    val lon: String = "0.0",
-    val name: String = "",
-    val type: LocationType = LocationType.STANDALONE,
-    val timestamp: String = "",
-    val timezone: String = "",
-    val timezoneOffset: Long = 0L,
-    val current: CurrentWeatherModel = CurrentWeatherModel(),
-    val hourly: List<HourlyModel> = emptyList(),
-    val daily: List<DailyModel> = emptyList()
-)
+enum class TemperatureUnit {
+    CELSIUS,
+    FAHRENHEIT
+}

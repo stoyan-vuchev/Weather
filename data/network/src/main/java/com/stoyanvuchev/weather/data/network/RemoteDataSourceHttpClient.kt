@@ -32,7 +32,7 @@ import io.ktor.serialization.kotlinx.json.json
 
 object RemoteDataSourceHttpClient {
 
-    val instance = HttpClient(Android) {
+    fun instance(): HttpClient = HttpClient(Android) {
 
         install(HttpTimeout) {
             requestTimeoutMillis = 10000

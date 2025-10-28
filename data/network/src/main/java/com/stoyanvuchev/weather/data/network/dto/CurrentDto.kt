@@ -29,9 +29,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CurrentDto(
-    val dt: Int? = 0,
-    val sunrise: Int? = 0,
-    val sunset: Int? = 0,
+    val dt: Long? = 0,
+    val sunrise: Long? = 0,
+    val sunset: Long? = 0,
     val temp: Double? = 0.0,
     @SerialName("feels_like")
     val feelsLike: Double? = 0.0,
@@ -48,5 +48,7 @@ data class CurrentDto(
     val windDeg: Double? = 0.0,
     @SerialName("wind_gust")
     val windGust: Double? = 0.0,
-    val weather: List<WeatherDto>? = emptyList()
+    val weather: List<WeatherDto>? = emptyList(),
+    val rain: RainDto? = RainDto(),
+    val snow: SnowDto? = SnowDto()
 )

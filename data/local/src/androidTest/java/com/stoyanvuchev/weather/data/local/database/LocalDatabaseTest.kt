@@ -24,7 +24,6 @@
 
 package com.stoyanvuchev.weather.data.local.database
 
-import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import assertk.assertThat
@@ -32,7 +31,6 @@ import assertk.assertions.isEqualTo
 import assertk.assertions.isNotNull
 import com.stoyanvuchev.weather.data.local.database.entity.CurrentEntity
 import com.stoyanvuchev.weather.data.local.database.entity.WeatherEntity
-import com.stoyanvuchev.weather.data.local.database.typeconverter.WeatherEntityTypeConverter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -48,10 +46,10 @@ class LocalDatabaseTest {
 
     @Before
     fun setUp() {
-        db = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
-            LocalDatabase::class.java
-        ).addTypeConverter(WeatherEntityTypeConverter()).build()
+        db = LocalDatabase.instance(
+            context = ApplicationProvider.getApplicationContext(),
+            inMemory = true
+        )
         dao = db.dao
     }
 
