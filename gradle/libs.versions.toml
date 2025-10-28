@@ -42,6 +42,7 @@ androidxJunitVersion = "1.3.0"
 espressoCoreVersion = "3.7.0"
 assertKVersion = "0.28.1"
 cashAppTurbineVersion = "1.2.1"
+coroutinesTestVersion = "1.10.2"
 
 # =================================================================================================
 
@@ -82,6 +83,7 @@ datastore-preferences = { group = "androidx.datastore", name = "datastore-prefer
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktorVersion" }
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktorVersion" }
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
 
 # Serialization Libs
 kotlinx-json-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxJsonSerializationVersion" }
@@ -97,6 +99,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
 assertK = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertKVersion" }
 cashApp-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "cashAppTurbineVersion" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTestVersion" }
 
 # =================================================================================================
 
@@ -104,6 +107,7 @@ cashApp-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = 
 
 # Android Plugins
 android-application = { id = "com.android.application", version.ref = "agpVersion" }
+android-library = { id = "com.android.library", version.ref = "agpVersion" }
 
 # Kotlin Plugins
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
