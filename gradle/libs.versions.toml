@@ -1,0 +1,117 @@
+[versions]
+
+# Plugin Versions
+agpVersion = "9.0.0-alpha11"
+kotlinVersion = "2.3.0-Beta2"
+kspVersion = "2.3.0"
+daggerHiltVersion = "2.57.2"
+
+# Core Lib Versions
+coreKtxVersion = "1.17.0"
+materialVersion = "1.13.0"
+
+# Lifecycle Lib Versions
+lifecycleRuntimeKtxVersion = "2.9.4"
+
+# Compose Lib Versions
+activityComposeVersion = "1.11.0"
+navigationComposeVersion = "2.9.5"
+composeBomVersion = "2025.10.01"
+
+# DI Lib Versions
+androidxHiltVersion = "1.3.0"
+
+# Local Storage Lib Versions
+roomVersion = "2.8.3"
+dataStoreVersion = "1.1.7"
+
+# Networking Lib Versions
+ktorVersion = "3.3.1"
+
+# Serilization Lib Versions
+kotlinxJsonSerializationVersion = "1.9.0"
+
+# Fancy UI Lib Versions
+systemUIBarsTweakerVersion = "1.2.4"
+squircleShapeVersion = "4.0.0"
+hazeVersion = "1.6.10"
+
+# Testing Lib Versions
+junitVersion = "4.13.2"
+androidxJunitVersion = "1.3.0"
+espressoCoreVersion = "3.7.0"
+assertKVersion = "0.28.1"
+cashAppTurbineVersion = "1.2.1"
+
+# =================================================================================================
+
+[libraries]
+
+# Core Libs
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtxVersion" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+
+#Lifecycle Libs
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+
+# Compose Libs
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVersion" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBomVersion" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# DI Libs
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHiltVersion" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHiltVersion" }
+androidx-hilt-viewmodel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel-compose", version.ref = "androidxHiltVersion" }
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxHiltVersion" }
+
+# Local Storage Libs
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStoreVersion" }
+
+# Networking Libs
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktorVersion" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktorVersion" }
+
+# Serialization Libs
+kotlinx-json-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxJsonSerializationVersion" }
+
+# Fancy UI Libs
+stoyanVuchev-systemUIBarsTweaker = { group = "io.github.stoyan-vuchev", name = "system-ui-bars-tweaker", version.ref = "systemUIBarsTweakerVersion" }
+stoyanVuchev-squircleShape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircleShapeVersion" }
+chrisBanes-haze = { group = "dev.chrisbanes.haze", name = "haze", version.ref = "hazeVersion" }
+
+# Testing Libs
+junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
+assertK = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertKVersion" }
+cashApp-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "cashAppTurbineVersion" }
+
+# =================================================================================================
+
+[plugins]
+
+# Android Plugins
+android-application = { id = "com.android.application", version.ref = "agpVersion" }
+
+# Kotlin Plugins
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinVersion" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinVersion" }
+
+# Symbol Proccessing Plugins
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+
+# DI Plugins
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHiltVersion" }
