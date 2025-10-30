@@ -83,3 +83,56 @@ enum class WeatherCondition {
     ERROR
 
 }
+
+fun WeatherCondition.category(): WeatherConditionCategory = when (this) {
+
+    WeatherCondition.SUNNY,
+    WeatherCondition.MOSTLY_SUNNY -> WeatherConditionCategory.SUNNY
+
+    WeatherCondition.CLEAR,
+    WeatherCondition.MOSTLY_CLEAR -> WeatherConditionCategory.CLEAR
+
+    WeatherCondition.PARTLY_CLOUDY_DAY,
+    WeatherCondition.CLOUDY_DAY,
+    WeatherCondition.MOSTLY_CLOUDY_DAY -> WeatherConditionCategory.CLOUDY_DAY
+
+    WeatherCondition.PARTLY_CLOUDY_NIGHT,
+    WeatherCondition.CLOUDY_NIGHT,
+    WeatherCondition.MOSTLY_CLOUDY_NIGHT -> WeatherConditionCategory.CLOUDY_NIGHT
+
+    WeatherCondition.LIGHT_DRIZZLE,
+    WeatherCondition.DRIZZLE,
+    WeatherCondition.INTENSIVE_DRIZZLE,
+    WeatherCondition.HEAVY_DRIZZLE,
+    WeatherCondition.LIGHT_RAIN,
+    WeatherCondition.RAIN,
+    WeatherCondition.RAIN_SHOWERS,
+    WeatherCondition.INTENSIVE_RAIN,
+    WeatherCondition.HEAVY_RAIN -> WeatherConditionCategory.RAIN
+
+    WeatherCondition.LIGHT_THUNDERSTORM_DAY,
+    WeatherCondition.LIGHT_THUNDERSTORM_NIGHT,
+    WeatherCondition.THUNDERSTORM,
+    WeatherCondition.HEAVY_THUNDERSTORM -> WeatherConditionCategory.STORM
+
+    WeatherCondition.LIGHT_RAIN_AND_SNOW,
+    WeatherCondition.RAIN_AND_SNOW,
+    WeatherCondition.SLEET,
+    WeatherCondition.LIGHT_SNOW,
+    WeatherCondition.SNOW,
+    WeatherCondition.HEAVY_SNOW -> WeatherConditionCategory.SNOW
+
+    WeatherCondition.MIST,
+    WeatherCondition.SMOG,
+    WeatherCondition.HAZE,
+    WeatherCondition.SAND_DUST_WHIRLS,
+    WeatherCondition.FOG,
+    WeatherCondition.SAND_STORM,
+    WeatherCondition.DUST_STORM,
+    WeatherCondition.VOLCANIC_ASH,
+    WeatherCondition.SQUALLS,
+    WeatherCondition.TORNADO -> WeatherConditionCategory.FOG
+
+    WeatherCondition.ERROR -> WeatherConditionCategory.FALLBACK
+
+}
