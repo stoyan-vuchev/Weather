@@ -19,6 +19,9 @@
       <SelectionState runConfigName="WeatherRepositoryImplTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="ColorPaletteTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
