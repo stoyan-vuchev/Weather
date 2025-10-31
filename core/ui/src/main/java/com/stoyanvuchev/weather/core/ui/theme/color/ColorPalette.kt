@@ -209,3 +209,11 @@ val LocalColorPalette = compositionLocalOf {
         lightTokens = LightSunnyDayColorPaletteTokens
     )
 }
+
+val LocalColor = compositionLocalOf {
+    colorPalette(
+        darkTheme = true,
+        darkTokens = DarkSunnyDayColorPaletteTokens,
+        lightTokens = LightSunnyDayColorPaletteTokens
+    ).onSurfaceLow
+}
