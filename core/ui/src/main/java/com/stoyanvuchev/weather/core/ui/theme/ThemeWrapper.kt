@@ -29,12 +29,15 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import com.stoyanvuchev.weather.core.ui.theme.color.ColorPalette
+import com.stoyanvuchev.weather.core.ui.theme.color.LocalColor
 import com.stoyanvuchev.weather.core.ui.theme.color.LocalColorPalette
 import com.stoyanvuchev.weather.core.ui.theme.color.asAnimatedColorPalette
+import com.stoyanvuchev.weather.core.ui.theme.haze.LocalHazeState
 import com.stoyanvuchev.weather.core.ui.theme.shape.LocalShapes
 import com.stoyanvuchev.weather.core.ui.theme.shape.Shapes
 import com.stoyanvuchev.weather.core.ui.theme.typography.LocalTypography
 import com.stoyanvuchev.weather.core.ui.theme.typography.Typography
+import dev.chrisbanes.haze.rememberHazeState
 
 @Composable
 fun ThemeWrapper(
@@ -44,15 +47,17 @@ fun ThemeWrapper(
     content: @Composable () -> Unit
 ) {
 
+    val hazeState = rememberHazeState()
     val animatedColorPalette by rememberUpdatedState(
         colorPalette.asAnimatedColorPalette()
     )
 
     CompositionLocalProvider(
         LocalColorPalette provides animatedColorPalette,
-        LocalTypography provides typography,
+        LocalColor provides animatedColorPalette.onSurfaceLow,
         LocalTypography provides typography,
         LocalShapes provides shapes,
+        LocalHazeState provides hazeState,
         content = content
     )
 
