@@ -22,15 +22,17 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.core.ui.components.button.iconbutton
+package com.stoyanvuchev.weather.core.ui.components.button
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
@@ -39,30 +41,29 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.stoyanvuchev.weather.core.ui.components.button.ButtonColors
 import com.stoyanvuchev.weather.core.ui.components.interaction.rememberRipple
 import com.stoyanvuchev.weather.core.ui.theme.Theme
 import com.stoyanvuchev.weather.core.ui.theme.color.LocalColor
 import com.stoyanvuchev.weather.core.ui.theme.shape.ShapeData
+import com.stoyanvuchev.weather.core.ui.theme.typography.LocalTextStyle
 
 @Composable
-fun IconButton(
+fun Button(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    colors: ButtonColors = defaultIconButtonColors(),
-    interactionSource: MutableInteractionSource? = remember { MutableInteractionSource() },
+    colors: ButtonColors = defaultButtonColors(),
     shapeData: ShapeData = Theme.shapes.large,
-    content: @Composable () -> Unit
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable RowScope.() -> Unit
 ) {
 
     val transition = updateTransition(
         targetState = enabled,
-        label = "IconButtonEnabledUpdateTransition"
+        label = "ButtonEnabledUpdateTransition"
     )
 
     val containerColor by transition.animateColor(
@@ -73,26 +74,31 @@ fun IconButton(
         targetValueByState = { colors.contentColor(it) }
     )
 
-    Box(
-        modifier = modifier
-            .defaultMinSize(
-                minWidth = DefaultContainerSize,
-                minHeight = DefaultContainerSize
-            )
-            .background(color = containerColor)
-            .clip(shape = shapeData.shape)
-            .clickable(
-                onClick = onClick,
-                enabled = enabled,
-                role = Role.Button,
-                interactionSource = interactionSource,
-                indication = rememberRipple(),
-            ),
-        contentAlignment = Alignment.Center,
+    CompositionLocalProvider(
+        LocalColor provides contentColor,
+        LocalTextStyle provides Theme.typography.labelMedium
     ) {
 
-        CompositionLocalProvider(
-            LocalColor provides contentColor,
+        Row(
+            modifier = modifier
+                .clip(shape = shapeData.shape)
+                .background(color = containerColor)
+                .clickable(
+                    onClick = onClick,
+                    enabled = enabled,
+                    role = Role.Button,
+                    interactionSource = interactionSource,
+                    indication = rememberRipple(color = contentColor),
+                )
+                .padding(
+                    horizontal = ButtonHorizontalPadding,
+                    vertical = ButtonVerticalPadding
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(
+                space = 16.dp,
+                alignment = Alignment.CenterHorizontally
+            ),
             content = content
         )
 
@@ -102,11 +108,12 @@ fun IconButton(
 
 @Stable
 @Composable
-private fun defaultIconButtonColors() = ButtonColors(
-    containerColor = Color.Transparent,
-    contentColor = LocalColor.current,
-    disabledContainerColor = Color.Transparent,
-    disabledContentColor = LocalColor.current.copy(.33f)
+private fun defaultButtonColors() = ButtonColors(
+    containerColor = Theme.colorPalette.primary,
+    contentColor = Theme.colorPalette.onPrimary,
+    disabledContainerColor = Theme.colorPalette.primary.copy(.33f),
+    disabledContentColor = Theme.colorPalette.onPrimary.copy(.33f)
 )
 
-private val DefaultContainerSize: Dp get() = 48.dp
+private val ButtonHorizontalPadding: Dp get() = 18.dp
+private val ButtonVerticalPadding: Dp get() = 12.dp
