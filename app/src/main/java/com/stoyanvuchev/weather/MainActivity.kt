@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.stoyanvuchev.weather.core.ui.components.button.Button
 import com.stoyanvuchev.weather.core.ui.components.button.iconbutton.IconButton
 import com.stoyanvuchev.weather.core.ui.components.icon.Icon
 import com.stoyanvuchev.weather.core.ui.components.text.Text
@@ -79,6 +80,58 @@ class MainActivity : ComponentActivity() {
                             Icon(
                                 painter = painterResource(R.drawable.cloud),
                                 contentDescription = null
+                            )
+
+                        }
+
+                        Button(
+                            onClick = remember { {} }
+                        ) {
+
+                            Icon(
+                                painter = painterResource(R.drawable.cloud),
+                                contentDescription = null
+                            )
+
+                            Text(
+                                text = "Cloudy"
+                            )
+
+                        }
+
+                        Button(
+                            onClick = remember { {} },
+                            enabled = false
+                        ) {
+
+                            Icon(
+                                painter = painterResource(R.drawable.cloud),
+                                contentDescription = null
+                            )
+
+                            Text(
+                                text = "Cloudy"
+                            )
+
+                        }
+
+                        Button(
+                            onClick = remember { {} }
+                        ) {
+
+                            Text(
+                                text = "Cloudy"
+                            )
+
+                        }
+
+                        Button(
+                            onClick = remember { {} },
+                            enabled = false
+                        ) {
+
+                            Text(
+                                text = "Cloudy"
                             )
 
                         }
