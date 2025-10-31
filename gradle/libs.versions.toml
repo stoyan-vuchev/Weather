@@ -1,7 +1,7 @@
 [versions]
 
 # Plugin Versions
-agpVersion = "9.0.0-alpha11"
+agpVersion = "9.0.0-alpha13"
 kotlinVersion = "2.3.0-Beta2"
 kspVersion = "2.3.0"
 daggerHiltVersion = "2.57.2"
@@ -43,7 +43,6 @@ espressoCoreVersion = "3.7.0"
 assertKVersion = "0.28.1"
 cashAppTurbineVersion = "1.2.1"
 coroutinesTestVersion = "1.10.2"
-appcompatVersion = "1.7.1"
 
 # =================================================================================================
 
@@ -101,7 +100,6 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 assertK = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertKVersion" }
 cashApp-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "cashAppTurbineVersion" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTestVersion" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
 
 # =================================================================================================
 
