@@ -27,6 +27,7 @@ package com.stoyanvuchev.weather.core.ui.theme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import com.stoyanvuchev.weather.core.ui.theme.color.ColorPalette
 import com.stoyanvuchev.weather.core.ui.theme.color.LocalColor
@@ -42,8 +43,8 @@ import dev.chrisbanes.haze.rememberHazeState
 @Composable
 fun ThemeWrapper(
     colorPalette: ColorPalette,
-    typography: Typography,
-    shapes: Shapes,
+    typography: Typography = remember { Typography() },
+    shapes: Shapes = remember { Shapes() },
     content: @Composable () -> Unit
 ) {
 

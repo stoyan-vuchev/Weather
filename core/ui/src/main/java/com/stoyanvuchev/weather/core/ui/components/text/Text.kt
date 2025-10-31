@@ -22,40 +22,38 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.ui.theme
+package com.stoyanvuchev.weather.core.ui.components.text
 
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.remember
-import com.stoyanvuchev.systemuibarstweaker.LocalSystemUIBarsTweaker
-import com.stoyanvuchev.systemuibarstweaker.ProvideSystemUIBarsTweaker
-import com.stoyanvuchev.weather.core.ui.theme.ThemeWrapper
-import com.stoyanvuchev.weather.core.ui.theme.color.toColorPalette
-import com.stoyanvuchev.weather.domain.other.WeatherCondition
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import com.stoyanvuchev.weather.core.ui.theme.color.LocalColor
+import com.stoyanvuchev.weather.core.ui.theme.typography.LocalTextStyle
 
 @Composable
-fun WeatherTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) = ProvideSystemUIBarsTweaker {
-
-    val tweaker = LocalSystemUIBarsTweaker.current
-    val colorPalette = remember(darkTheme) {
-        WeatherCondition.SUNNY.toColorPalette(darkTheme)
-    }
-
-    DisposableEffect(tweaker, darkTheme) {
-        tweaker.tweakSystemBarsStyle(
-            statusBarStyle = tweaker.statusBarStyle.copy(darkIcons = !darkTheme),
-            navigationBarStyle = tweaker.navigationBarStyle.copy(darkIcons = !darkTheme)
-        )
-        onDispose {}
-    }
-
-    ThemeWrapper(
-        colorPalette = colorPalette,
-        content = content
-    )
-
-}
+fun Text(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = LocalColor.current,
+    textAlign: TextAlign? = null,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    softWrap: Boolean = true,
+    maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = 1,
+    style: TextStyle = LocalTextStyle.current,
+) = BasicText(
+    text = text,
+    modifier = modifier,
+    style = style.merge(
+        color = color,
+        textAlign = textAlign ?: TextAlign.Unspecified
+    ),
+    overflow = overflow,
+    softWrap = softWrap,
+    maxLines = maxLines,
+    minLines = minLines,
+)
