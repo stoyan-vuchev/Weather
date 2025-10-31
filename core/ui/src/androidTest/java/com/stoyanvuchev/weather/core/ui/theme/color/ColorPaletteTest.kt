@@ -79,6 +79,23 @@ class ColorPaletteTest {
         }
     }
 
+    @Test
+    fun localColor_match_color() {
+        composeTestRule.setContent {
+
+            val color = remember {
+                WeatherCondition.SUNNY
+                    .toColorPalette(false)
+                    .onSurfaceLow
+            }
+
+            CompositionLocalProvider(LocalColor provides color) {
+                assertThat(LocalColor.current).isEqualTo(color)
+            }
+
+        }
+    }
+
     private fun assertPaletteEquals(actual: ColorPalette, expected: ColorPalette) {
         assertThat(actual.primary).isEqualTo(expected.primary)
         assertThat(actual.onPrimary).isEqualTo(expected.onPrimary)

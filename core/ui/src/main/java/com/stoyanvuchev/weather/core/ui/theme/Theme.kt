@@ -22,24 +22,34 @@
  * SOFTWARE.
  */
 
-package com.stoyanvuchev.weather.core.ui.theme.typography
+package com.stoyanvuchev.weather.core.ui.theme
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.text.TextStyle
+import com.stoyanvuchev.weather.core.ui.theme.color.ColorPalette
+import com.stoyanvuchev.weather.core.ui.theme.color.LocalColorPalette
+import com.stoyanvuchev.weather.core.ui.theme.shape.LocalShapes
+import com.stoyanvuchev.weather.core.ui.theme.shape.Shapes
+import com.stoyanvuchev.weather.core.ui.theme.typography.LocalTypography
+import com.stoyanvuchev.weather.core.ui.theme.typography.Typography
 
 @Stable
-data class Typography(
-    val displayLarge: TextStyle = TypographyTokens.displayLarge,
-    val titleLarge: TextStyle = TypographyTokens.titleLarge,
-    val titleSmall: TextStyle = TypographyTokens.titleSmall,
-    val bodyLarge: TextStyle = TypographyTokens.bodyLarge,
-    val bodyMedium: TextStyle = TypographyTokens.bodyMedium,
-    val bodySmall: TextStyle = TypographyTokens.bodySmall,
-    val labelLarge: TextStyle = TypographyTokens.labelLarge,
-    val labelMedium: TextStyle = TypographyTokens.labelMedium,
-    val labelSmall: TextStyle = TypographyTokens.labelSmall
-)
+object Theme {
 
-val LocalTypography = staticCompositionLocalOf { Typography() }
-val LocalTextStyle = staticCompositionLocalOf { TypographyTokens.bodyMedium }
+    val colorPalette: ColorPalette
+        @ReadOnlyComposable
+        @Composable
+        get() = LocalColorPalette.current
+
+    val typography: Typography
+        @ReadOnlyComposable
+        @Composable
+        get() = LocalTypography.current
+
+    val shapes: Shapes
+        @ReadOnlyComposable
+        @Composable
+        get() = LocalShapes.current
+
+}

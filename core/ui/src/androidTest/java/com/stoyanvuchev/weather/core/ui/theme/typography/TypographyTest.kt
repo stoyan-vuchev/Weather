@@ -59,4 +59,14 @@ class TypographyTest {
         }
     }
 
+    @Test
+    fun localTextStyle_matches_textStyle() {
+        composeTestRule.setContent {
+            val textStyle = remember { TypographyTokens.bodyMedium }
+            CompositionLocalProvider(LocalTextStyle provides textStyle) {
+                assertThat(LocalTextStyle.current).isEqualTo(textStyle)
+            }
+        }
+    }
+
 }
