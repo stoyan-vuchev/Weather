@@ -28,13 +28,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.stoyanvuchev.weather.core.ui.components.icon.Icon
 import com.stoyanvuchev.weather.core.ui.components.text.Text
 import com.stoyanvuchev.weather.core.ui.theme.Theme
 import com.stoyanvuchev.weather.ui.theme.WeatherTheme
@@ -55,12 +59,21 @@ class MainActivity : ComponentActivity() {
                     contentColor = Theme.colorPalette.onSurfaceLow
                 ) { innerPadding ->
 
-                    Box(
+                    Column(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding),
-                        contentAlignment = Alignment.Center
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(
+                            space = 24.dp,
+                            alignment = Alignment.CenterVertically
+                        )
                     ) {
+
+                        Icon(
+                            painter = painterResource(R.drawable.cloud),
+                            contentDescription = null
+                        )
 
                         Text(
                             text = "Hello, ${stringResource(R.string.app_name)}!"
